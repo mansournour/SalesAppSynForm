@@ -1,0 +1,25 @@
+# AL / Business Central
+.alpackages/
+.snapshots/
+*.app
+*.bak
+
+# .NET / Visual Studio
+bin/
+obj/
+.vs/
+*.user
+*.suo
+*.cache
+packages/
+*.pdb
+*.exe
+TestResults/
+
+# Secrets — ne jamais committer
+**/BcApiConfig.cs.secret
+appsettings.*.json
+*.env
+
+# VS Code
+.vscode/
