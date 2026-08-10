@@ -17,7 +17,6 @@ page 50150 "Sales Header API"
     {
         area(Content)
         {
-            // ── Champs obligatoires ──────────────────────────────
             field(id; Rec.SystemId)
             {
                 Caption = 'id';
@@ -34,10 +33,13 @@ page 50150 "Sales Header API"
             {
                 Caption = 'customerNo';
             }
-            // ── Champs supplémentaires ───────────────────────────
             field(customerName; Rec."Sell-to Customer Name")
             {
                 Caption = 'customerName';
+            }
+            field(billToName; Rec."Bill-to Name")
+            {
+                Caption = 'billToName';
             }
             field(postingDate; Rec."Posting Date")
             {
@@ -79,9 +81,14 @@ page 50150 "Sales Header API"
             {
                 Caption = 'lastModifiedDateTime';
             }
+            part(salesDocumentLines; "Sales Line API")
+            {
+                Caption = 'Lines';
+                EntityName = 'salesDocumentLine';
+                EntitySetName = 'salesDocumentLines';
+                SubPageLink = "Document Type" = field("Document Type"),
+                              "Document No." = field("No.");
+            }
         }
     }
-
-    // Filtre dynamique sur DocumentType via query string : ?$filter=documentType eq 'Order'
-    // BC gère le filtre OData nativement sur les champs exposés.
 }
